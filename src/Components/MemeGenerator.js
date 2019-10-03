@@ -1,7 +1,5 @@
 import React, {Component} from "react"
 
-
-
 class MemeGenerator extends Component {
     constructor() {
         super()
@@ -10,10 +8,7 @@ class MemeGenerator extends Component {
             bottomText: "Bottom Text",
             randomImage: "http://i.imgflip.com/1bij.jpg",
             allMemesImgs: []
-
         }
-        this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     componentDidMount() {
@@ -26,12 +21,12 @@ class MemeGenerator extends Component {
             })
     }
 
-    handleChange(event) {
+    handleChange = (event) => {
         const {name, value} = event.target
         this.setState({ [name]: value })
     }
     
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault()
         // get a random number int (index of the array)
         const randNum = Math.floor(Math.random() * this.state.allMemesImgs.length)
@@ -40,7 +35,6 @@ class MemeGenerator extends Component {
         // set randonImg to the url of the random item I got
         this.setState({ randomImage: randomMemeImg })
     }
-   
 
     render() {
         return(
